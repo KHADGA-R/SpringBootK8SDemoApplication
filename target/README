@@ -1,0 +1,30 @@
+
+This is a simple Spring boot project build to deploy in Kubernetes cluster using docker images. 
+
+Steps :
+1. Build a simple Spring boot maven project
+2. Create application .jar file
+3. Create a 'Dockerfile' in main application package. 
+   The Dockerfile need to have following information :
+   FROM <>
+   EXPOSE <port>
+   COPY <>
+   ENTRYPOINT <>
+4. Open your terminal, For example in windows open your Powershell and locate to your Dockerfile .. cd .. 
+5. Build Docker image 
+   docker build -t <dockerimage name> .
+   This will create docker image.
+6. Validate docker image is created or not. 
+   Run command : docker images 
+   This will list all the docker images available
+7. Tag you docker image correctly
+   docker tag springbootk8sdemo <DockerHub Username>/<docker image name>:latest
+8. Push the image to Docker Hub
+   docker push <DockerHub Username>/<docker image name>:latest
+
+10. (Optional) Run the Docker container locally
+   docker run -p <host_port>:<container_port> <dockerimage name>
+   This will start your application and map the container port to your local machine.
+
+9. Confirm your Docker Hub
+   Visit: https://hub.docker.com/repository/docker/<dockerhub username>/<dockerimage name>
